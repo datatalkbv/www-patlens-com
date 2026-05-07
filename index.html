@@ -119,6 +119,27 @@
             color: var(--text-muted);
             max-width: 650px;
             line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        /* Hero CTA Button */
+        .btn-primary {
+            display: inline-block;
+            background: var(--primary);
+            color: #ffffff;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(43, 91, 226, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(43, 91, 226, 0.35);
         }
 
         /* Deliverable Section */
@@ -229,7 +250,7 @@
         .card h2 {
             font-family: 'Funnel Display', serif;
             font-weight: 600;
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 24px;
             color: var(--text-main);
         }
@@ -289,53 +310,119 @@
             line-height: 1.5;
         }
 
-        /* Track record */
-        .track-record-note {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+        /* Case Studies Grid Section */
+        .case-studies {
+            padding-bottom: 60px;
         }
 
-        .case {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 20px;
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-header h2 {
+            font-family: 'Funnel Display', serif;
+            font-weight: 600;
+            font-size: 32px;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            text-decoration: none;
-            color: var(--text-main);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
             transition: all 0.2s ease;
-            margin-bottom: 12px;
-            background: #fafafa;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        .case:hover {
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(43, 91, 226, 0.15);
             border-color: var(--primary);
-            background: #fff;
-            box-shadow: 0 4px 12px rgba(43, 91, 226, 0.08);
-            transform: translateY(-1px);
         }
 
-        .case-info { flex: 1; }
-
-        .case-label {
-            font-size: 14px;
+        .case-company {
+            font-size: 12px;
             font-weight: 600;
-            margin-bottom: 4px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .case-title {
+            font-size: 20px;
+            font-family: 'Funnel Display', serif;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .case-outcome {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+
+        .case-stats {
+            background: #f3f4f6;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .case-stats strong {
+            color: var(--text-main);
         }
 
         .case-desc {
-            font-size: 12.5px;
+            font-size: 14px;
             color: var(--text-muted);
+            margin-bottom: 24px;
+            flex-grow: 1;
         }
 
-        .case-icon {
-            color: #9ca3af;
-            transition: color 0.2s;
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.2s;
         }
 
-        .case:hover .case-icon { color: var(--primary); }
+        .case-link:hover {
+            opacity: 0.8;
+        }
 
         /* CTA bar */
         .cta-bar {
@@ -408,6 +495,10 @@
 
         footer a:hover { text-decoration: underline; }
 
+        @media (max-width: 900px) {
+            .case-grid { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 36px; }
             .deliverable-section { grid-template-columns: 1fr; padding: 24px; }
@@ -437,11 +528,71 @@
                 <span class="badge">Fast & Accurate Prior Art</span>
                 <h1>Prior art search.<br>Delivered ready-to-use.</h1>
                 <p>Send us a patent number or unfiled claim set. We search 160M+ patents and 1B+ non-patent sources to find the most relevant art. You get a fully mapped claim chart back in your inbox within roughly 24 hours.</p>
+                <a href="mailto:mail@patgrid.com" class="btn-primary">Start Your Search</a>
+            </div>
+        </section>
+
+        <section class="case-studies container">
+            <div class="section-header">
+                <h2>Proven Results at the EPO</h2>
+                <p>Read how our prior art submissions successfully challenged patents that had already sailed through examination in other global jurisdictions.</p>
+            </div>
+            
+            <div class="case-grid">
+                <!-- Case 1: Bytedance -->
+                <div class="case-card">
+                    <div class="case-company">Bytedance / Image Editing</div>
+                    <h3 class="case-title">Imminent Grant Halted</h3>
+                    <span class="case-outcome">All claims obvious</span>
+                    <div class="case-stats">
+                        <div><strong>Application:</strong> EP21860511</div>
+                        <div style="margin-top: 4px;"><strong>Patents Granted:</strong> US, Japan</div>
+                        <div style="margin-top: 4px;"><strong>Prior Art Missed By:</strong> WIPO, USPTO, JPO</div>
+                    </div>
+                    <p class="case-desc">The examiner had concluded the claims were novel and inventive and was preparing to grant. Our prior art submission stopped the grant. The examiner stated: "The primary examiner cannot issue a R. 71(3) EPC communication in view of D4 introduced by the third party."</p>
+                    <a href="https://register.epo.org/application?number=EP21860511" target="_blank" rel="noopener" class="case-link">
+                        View on EPO Register 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+
+                <!-- Case 2: Mitsubishi -->
+                <div class="case-card">
+                    <div class="case-company">Mitsubishi / Industrial Robotics</div>
+                    <h3 class="case-title">Novelty Destroyed</h3>
+                    <span class="case-outcome">Anticipated by single doc</span>
+                    <div class="case-stats">
+                        <div><strong>Application:</strong> EP21853723</div>
+                        <div style="margin-top: 4px;"><strong>Patents Granted:</strong> Japan</div>
+                        <div style="margin-top: 4px;"><strong>Prior Art Missed By:</strong> WIPO, USPTO, JPO</div>
+                    </div>
+                    <p class="case-desc">A single document we found destroys novelty of all claims across both the main and auxiliary request. The examiner confirmed: "D6 indeed discloses all the claimed features of the independent claims."</p>
+                    <a href="https://register.epo.org/application?number=EP21853723" target="_blank" rel="noopener" class="case-link">
+                        View on EPO Register 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
+
+                <!-- Case 3: China Telecom -->
+                <div class="case-card">
+                    <div class="case-company">China Telecom / 5G Networks</div>
+                    <h3 class="case-title">Inventive Step Rejected</h3>
+                    <span class="case-outcome">All claims lack inventive step</span>
+                    <div class="case-stats">
+                        <div><strong>Application:</strong> EP21939047</div>
+                        <div style="margin-top: 4px;"><strong>Patents Granted:</strong> US, Japan, China</div>
+                        <div style="margin-top: 4px;"><strong>Prior Art Missed By:</strong> WIPO, USPTO, JPO, CNIPA</div>
+                    </div>
+                    <p class="case-desc">Our two-document combination knocked out all independent and dependent claims on inventive step. The examiner concluded: "The combination of D10 with this teaching from D11 would therefore be obvious to the skilled person."</p>
+                    <a href="https://register.epo.org/application?number=EP21939047" target="_blank" rel="noopener" class="case-link">
+                        View on EPO Register 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                </div>
             </div>
         </section>
 
         <section class="container">
-            <!-- New Deliverable Section addressing Data Dumps & Format -->
             <div class="deliverable-section">
                 <div class="deliverable-text">
                     <h2>Stop paying for data dumps.</h2>
@@ -462,7 +613,6 @@
                     </ul>
                 </div>
                 
-                <!-- Visual Representation of the output -->
                 <div class="mock-table">
                     <div class="mock-header">
                         <div class="mock-cell">Your Claim Limitation</div>
@@ -508,24 +658,25 @@
                 </div>
 
                 <div class="card">
-                    <h2>Track record</h2>
-                    <p class="track-record-note">Our prior art submissions have been successfully accepted by EPO examiners through the third-party observations mechanism.</p>
+                    <h2>Global Blind Spots, Uncovered</h2>
+                    <p style="font-size: 15px; color: var(--text-muted); margin-bottom: 20px;">Our search algorithms routinely find prior art completely missed by international patent offices. These are documents that bypass the examiner but can destroy a patent's validity.</p>
                     
-                    <a class="case" href="https://register.epo.org/application?number=EP21939047" target="_blank" rel="noopener">
-                        <div class="case-info">
-                            <div class="case-label">Inventive step challenge — China Telecom</div>
-                            <div class="case-desc">EP21939047 · Observation accepted</div>
-                        </div>
-                        <svg class="case-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </a>
+                    <ul class="feature-list" style="margin-bottom: 24px;">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            Missed by WIPO International Search
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            Missed by the USPTO
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            Missed by the JPO & CNIPA
+                        </li>
+                    </ul>
                     
-                    <a class="case" href="https://register.epo.org/application?number=EP21853723" target="_blank" rel="noopener">
-                        <div class="case-info">
-                            <div class="case-label">Novelty challenge — Mitsubishi</div>
-                            <div class="case-desc">EP21853723 · Observation accepted</div>
-                        </div>
-                        <svg class="case-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </a>
+                    <p style="font-size: 14px; font-weight: 500; color: var(--text-main);">See below how our third-party observations have stopped grants and destroyed novelty at the European Patent Office.</p>
                 </div>
             </div>
         </section>
